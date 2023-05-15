@@ -9,24 +9,21 @@ const ComicsId = ({ setFavorites, setFavoris, favoris, favorites }) => {
 
   const { id } = useParams();
 
-  useEffect(
-    (setFavorites, data) => {
-      const fetchData = async () => {
-        try {
-          const response = await axios.get(`
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`
         https://site--marvelback--fy8q84tw4xrp.code.run/comic/${id}`);
-          setData(response.data);
-          setIsLoading(false);
-          setFavorites(false);
-        } catch (error) {
-          console.log(error);
-        }
-      };
+        setData(response.data);
+        setIsLoading(false);
+        setFavorites(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-      fetchData();
-    },
-    [id, favoris]
-  );
+    fetchData();
+  }, [id, favoris, Cookies]);
 
   return isLoading ? (
     <p>isLoading...</p>
