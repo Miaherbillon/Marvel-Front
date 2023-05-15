@@ -6,7 +6,6 @@ const Pagination = ({ setSkip, skip, data }) => {
   return (
     <>
       {data.map((elem, index) => {
-        console.log(elem.count);
         return (
           <div key={index} className="pagination">
             {skip > 0 && (

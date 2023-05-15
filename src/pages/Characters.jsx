@@ -49,7 +49,6 @@ const Characters = ({
       <div className="character">
         {data.map((elem) => {
           return elem.results.map((elem, index) => {
-            console.log(elem);
             return (
               <div key={index}>
                 <CardCharacters
