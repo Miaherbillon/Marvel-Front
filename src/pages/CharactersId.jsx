@@ -9,22 +9,25 @@ const CharactersId = ({ setFavorites, setFavoris, favoris, favorites }) => {
 
   const { id } = useParams();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `https://site--marvelback--fy8q84tw4xrp.code.run/character/${id}`
-        );
-        setData(response.data);
-        setIsLoading(false);
-        setFavorites(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    console.log(data);
-    fetchData();
-  }, [id, favoris, Cookies]);
+  useEffect(
+    ({ setFavorites, data }) => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(
+            `https://site--marvelback--fy8q84tw4xrp.code.run/character/${id}`
+          );
+          setData(response.data);
+          setIsLoading(false);
+          setFavorites(false);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      console.log(data);
+      fetchData();
+    },
+    [id, favoris]
+  );
   console.log(data);
   return isLoading ? (
     <p>Loading ...</p>
