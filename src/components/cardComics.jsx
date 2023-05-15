@@ -9,6 +9,7 @@ const cardComics = ({ results }) => {
             <h1>{results.title}</h1>
             <img
               src={results.thumbnail.path + "." + results.thumbnail.extension}
+              alt="imagecomics"
             />
 
             <p>{results.description}</p>
